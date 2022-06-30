@@ -2,19 +2,20 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getImages } from '../service'
 
-const ImageGallery = () => {
+const ImageGallery = (search) => {
     const [images, setImages] = useState([])
+    
+    const imageSearch = search ? encodeURIComponent(search[0][1]) : ''
 
     useEffect(() => {
-        getImages().then(response => {
+        getImages(imageSearch).then(response => {
             setImages(response.data.hits)
-            console.log(response.data.hits)
         },
         (error) => {
             console.log(error)
         }
         )
-    }, [])
+    }, [imageSearch])
 
     return(
         <div>

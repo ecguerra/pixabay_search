@@ -13,10 +13,9 @@ function App() {
   return (
     <>
     <Search />
-    <Link to='/images'>Go to the images!</Link>
     <Routes>
       <Route path='images' element={<ImageGallery />} />
-      <Route path='images/:imageId' element={<Image />} />
+      <Route path=':imageId' element={<Image />} />
     </Routes>
     </>
   );
