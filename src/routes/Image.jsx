@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { getOneImage } from '../service'
 
 const Image = () => {
@@ -8,23 +8,26 @@ const Image = () => {
 
     useEffect(() => {
         getOneImage(imageId).then(response => {
-            console.log(response.data)
+            setImage(response.data.hits[0])
         },
         (error) => {
             console.log(error)
         })
     },[imageId])
 
-
-    // const { id, largeImageURL, user, tags } = image
+    const { largeImageURL, tags, user } = image || {}
 
     return (
         <div>
-            Placeholder
-            {/* <img src={largeImageURL} alt={tags}/>
-            <h4>{user}</h4>
-            <p>Tags: {tags}</p>  */}
-            
+            {image ?
+            <>
+                <img src={largeImageURL} alt={tags}/>
+                <h4>Photo by {user}</h4>
+                <p>Tags: {tags}</p> 
+            </>
+            :
+            <p>Loading...</p>}
+            <Link to='/'>Back to Search</Link>
         </div>
     )
 }
