@@ -18,15 +18,18 @@ const Image = () => {
     const { largeImageURL, tags, user } = image || {}
 
     return (
-        <div>
+        <div className='image-container'>
             {image ?
-            <>
-                <img src={largeImageURL} alt={tags}/>
-                <h4>Photo by {user}</h4>
-                <p>Tags: {tags}</p> 
-            </>
-            :
-            <p>Loading...</p>}
+                <>
+                    <div className='details'>
+                        <h4>Photo by {user}</h4>
+                        <p>Tags: {tags}</p> 
+                    </div>
+                    <img src={largeImageURL} alt={tags} className='large-image'/>
+                </>
+                :
+                <p>Loading...</p>
+            }
             <Link to='/'>Back to Search</Link>
         </div>
     )

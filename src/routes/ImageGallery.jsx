@@ -17,10 +17,10 @@ const ImageGallery = (search) => {
     }, [imageSearch])
 
     return(
-        <div>
+        <div className='gallery'>
             {images.map(image => (
                 <Link to={`/images/${image.id}`} key={image.id}>
-                    <img src={image.previewURL} alt={image.tags}/>
+                    <img src={image.previewURL} alt={image.tags} className='thumbnail'/>
                 </Link>
             ))}
         </div>

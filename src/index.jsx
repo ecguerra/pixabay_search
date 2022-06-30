@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import App from './App';
 import Image from './routes/Image';
+import './index.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

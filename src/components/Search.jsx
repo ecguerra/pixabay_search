@@ -11,7 +11,8 @@ const Search = () => {
     }
     
     return (
-        <div>
+        <div className='container'>
+            <h1>Pixabay Photo Search</h1>
             <form onSubmit={handleSearch}>
                 <input 
                     value={searchParams.get('search') || ''}
