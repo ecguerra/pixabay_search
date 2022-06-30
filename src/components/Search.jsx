@@ -4,7 +4,7 @@ import ImageGallery from '../routes/ImageGallery'
 
 const Search = () => {
     let [searchParams, setSearchParams] = useSearchParams()
-    const [search, setSearch] = useState([['','']])
+    const [search, setSearch] = useState(undefined)
     const handleSearch = (e) => {
         e.preventDefault()
         setSearch([...searchParams])

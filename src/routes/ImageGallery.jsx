@@ -4,8 +4,7 @@ import { getImages } from '../service'
 
 const ImageGallery = (search) => {
     const [images, setImages] = useState([])
-    
-    const imageSearch = search ? encodeURIComponent(search[0][1]) : ''
+    const imageSearch = (search[0] && encodeURIComponent(search[0][1])) || ''
 
     useEffect(() => {
         getImages(imageSearch).then(response => {

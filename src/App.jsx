@@ -1,7 +1,6 @@
 import { 
   Routes,
-  Route, 
-  Link,
+  Route,
 } from 'react-router-dom'
 
 import ImageGallery from './routes/ImageGallery';
@@ -14,8 +13,9 @@ function App() {
     <>
     <Search />
     <Routes>
-      <Route path='images' element={<ImageGallery />} />
-      <Route path=':imageId' element={<Image />} />
+      <Route path='images' element={<ImageGallery />}>
+        <Route path=':imageId' element={<Image />} />
+      </Route>
     </Routes>
     </>
   );
