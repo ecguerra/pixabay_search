@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Image from './Image'
+import { Link } from 'react-router-dom'
 import { getImages } from '../service'
 
 const ImageGallery = () => {
@@ -18,11 +18,11 @@ const ImageGallery = () => {
 
     return(
         <div>
-            <h1>HI</h1>
             {images.map(image => (
-                <img src={image.previewURL} alt={image.tags} key={image.id}/>
+                <Link to={`/images/${image.id}`} key={image.id}>
+                    <img src={image.previewURL} alt={image.tags}/>
+                </Link>
             ))}
-            <Image />
         </div>
     )
 }
